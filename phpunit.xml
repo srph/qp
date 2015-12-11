@@ -1,0 +1,14 @@
+<phpunit
+  colors="true"
+  bootstrap="vendor/autoload.php"
+  verbose="true">
+  <testsuites>
+    <testsuite name="map_range Test Suite">
+      <directory suffix="Test.php">./tests</directory>
+    </testsuite>
+  </testsuites>
+  
+  <whitelist processUncoveredFilesFromWhitelist="true">
+    <directory suffix=".php">./src</directory>
+  </whitelist>
+</phpunit>
