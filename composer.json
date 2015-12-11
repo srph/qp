@@ -1,6 +1,6 @@
 {
     "name": "srph/qp",
-    "description": "A library to parse or stringify query parameter in PHP.",
+    "description": "A library to parse or stringify query parameters in PHP.",
     "license": "MIT",
     "authors": [
         {
@@ -8,5 +8,7 @@
             "email": "seraphipod@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^5.1"
+    }
 }

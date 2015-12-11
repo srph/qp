@@ -1,5 +1,5 @@
 # qp
-A library to parse or stringify query parameter in PHP.
+A library to parse or stringify query parameters in PHP.
 
 ## Installing
 ```bash
