@@ -1,0 +1,12 @@
+{
+    "name": "srph/qp",
+    "description": "A library to parse or stringify query parameter in PHP.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "srph",
+            "email": "seraphipod@gmail.com"
+        }
+    ],
+    "require": {}
+}
