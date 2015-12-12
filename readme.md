@@ -15,3 +15,8 @@ Qp::parse('user[name]=kier'); // ['user' => ['name' => 'kier']];
 Qp::parse('users[]=kier'); // ['users' => ['kier']]
 Qp::stringify(['username' => 'kier', 'password' => '****']); // 'username=kier&password=*****'
 ```
+
+## Limitations
+- Parser does not support nested arrays and objects (https://github.com/srph/qp/issues/1).
+
+I'm short in time at the moment, and I don't see their usage in real world application **yet**. But if you would like them to be supported (which I would consider **rare**), feel free to submit a pull request.
