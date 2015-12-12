@@ -43,7 +43,8 @@ class Parser {
 		$queries = explode('&', $query);
 
 		foreach($queries as $query) {
-			$set = explode('=', $query);
+			// Set `explode` limit to `2` to avoid multiple `==`
+			$set = explode('=', $query, 2);
 			$key = $set[0];
 			$value = isset($set[1]) ? $set[1] : '';
 

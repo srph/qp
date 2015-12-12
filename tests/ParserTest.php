@@ -36,4 +36,12 @@ class ParserTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals($array['user'], '');
 	}
+
+	public function testShouldSetRedundantEqualsAsValue() {
+		$query = 'user===';
+		$parser = new Parser($query);
+		$array = $parser->parse();
+
+		$this->assertEquals($array['user'], '==');
+	}
 }
