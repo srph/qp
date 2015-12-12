@@ -14,8 +14,3 @@ Qp::parse('user[name]=kier'); // ['user' => ['name' => 'kier']];
 Qp::parse('users[]=kier'); // ['users' => ['kier']]
 Qp::stringify(['username' => 'kier', 'password' => '****']); // 'username=kier&password=*****'
 ```
-
-## Todo
-- [] Support nested arrays in Parsing
-- [] Support nested objects in Parsing
-- [] Support arrays / object in Stringifying
