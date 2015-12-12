@@ -5,6 +5,7 @@ A library to parse or stringify query parameters in PHP.
 ```bash
 composer require srph/qp
 ```
+Supports versions `>=5.5.9` (**including `7.0`**).
 
 ## Usage
 ```php
