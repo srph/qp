@@ -28,4 +28,12 @@ class ParserTest extends PHPUnit_Framework_TestCase {
 			'password' => '1234'
 		]]);
 	}
+
+	public function testShouldDefaultValueToEmptyString() {
+		$query = 'user=';
+		$parser = new Parser($query);
+		$array = $parser->parse();
+
+		$this->assertEquals($array['user'], '');
+	}
 }

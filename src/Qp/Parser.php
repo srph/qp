@@ -45,7 +45,7 @@ class Parser {
 		foreach($queries as $query) {
 			$set = explode('=', $query);
 			$key = $set[0];
-			$value = $set[1];
+			$value = isset($set[1]) ? $set[1] : '';
 
 			// @TODO
 			// Recursively
@@ -60,9 +60,11 @@ class Parser {
 				$result[$key][] = $value;
 			// If the value is an object (e.g., `user[name]=pogi`)
 			} else if ( preg_match(self::STRING_OBJECT_REGEX, $key, $matches) ) {
-				$subkey = substr($matches[0], 1);
-				$subkey = substr($subkey, 0, strlen($subkey) - 1);
-				$key = substr($key, 0, (strlen($key) - 3) - (strlen($subkey) - 1));
+				// Get the name of subkey by removing the brackets from the subkey,
+				// e.g., ([yolo] => yolo)
+				// and then remove it from the key (user[name] => user).
+				$subkey = substr($matches[0], 1, strlen($matches[0]) - 2);
+				$key = substr($key, 0, (strlen($key) - 1) - strlen($subkey) - 1);
 
 				if ( !isset($result[$key]) ) {
 					$result[$key] = [];
