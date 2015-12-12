@@ -34,19 +34,14 @@ class Parser {
 	 * @return array
 	 */
 	public function parse() {
-		// Remove `?` from query. (?yolo=swag => yolo=swag)
-		$query = substr($this->query, 0, 1) === '?'
-			? substr($this->query, 1)
-			: $this->query;
-
+		$query = $this->getQuery();
 		$result = [];
 		$queries = explode('&', $query);
 
 		foreach($queries as $query) {
-			// Set `explode` limit to `2` to avoid multiple `==`
-			$set = explode('=', $query, 2);
-			$key = $set[0];
-			$value = isset($set[1]) ? $set[1] : '';
+			$query = $this->splitQuery($query);
+			$key = $query[0];
+			$value = isset($query[1]) ? $query[1] : '';
 
 			// @TODO
 			// Recursively
@@ -78,5 +73,26 @@ class Parser {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Remove `?` from query. (?yolo=swag => yolo=swag)
+	 *
+	 * @return string 
+	 */
+	protected function getQuery() {
+		return substr($this->query, 0, 1) === '?'
+			? substr($this->query, 1)
+			: $this->query;	
+	}
+
+	/**
+	 * Split query (`key=value`) to `['key', 'value']`.
+	 *
+	 * @return array
+	 */
+	protected function splitQuery($query) {
+		// Set `explode` limit to `2` to avoid multiple `==`
+		return explode('=', $query, 2);
 	}
 }
