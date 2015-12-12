@@ -51,7 +51,7 @@ class Parser {
 			// Recursively
 			// If the value is an array (e.g., `users[]=pogi`)
 			if ( preg_match(self::STRING_ARRAY_REGEX, $key) ) {
-				$key = substr($key, 0, strlen($key) - 3);
+				$key = substr($key, 0, strlen($key) - 2);
 
 				if ( !isset($result[$key]) ) {
 					$result[$key] = [];
