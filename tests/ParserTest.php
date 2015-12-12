@@ -16,4 +16,16 @@ class ParserTest extends PHPUnit_Framework_TestCase {
 		$array = $parser->parse();
 		$this->assertEquals($array, ['users' => ['kier', 'jess']]);
 	}
+
+	public function testShouldParseObjcts() {
+		$query = 'user[username]=srph&user[email]=yolo@swag.com&user[password]=1234';
+		$parser = new Parser($query);
+		$array = $parser->parse();
+		
+		$this->assertEquals($array, ['user' => [
+			'username' => 'srph',
+			'email' => 'yolo@swag.com',
+			'password' => '1234'
+		]]);
+	}
 }
