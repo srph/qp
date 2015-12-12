@@ -31,22 +31,6 @@ class Stringifier {
 	 * @return array
 	 */
 	public function stringify() {
-		$queries = [];
-
-		foreach($this->query as $key => $value) {
-			if ( is_array($value) ) {
-				$keys = array_keys($value);
-
-				// @TODO
-				// Check if an array or object (check for non-int values)
-				foreach($keys as $subkey => $value) {
-					$queries[] = "{$key}[{$subkey}]={$value}";
-				}
-			} else {
-				$queries[] = "{$key}={$value}";
-			}
-		}
-
-		return implode('&', $queries);
+		return http_build_query($this->query);
 	}
 }
