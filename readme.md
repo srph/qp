@@ -1,6 +1,9 @@
 # qp [![Build Status](https://img.shields.io/travis/srph/qp.svg?style=flat-square)](https://travis-ci.org/srph/qp?branch=master) [![Latest Stable Version](https://poser.pugx.org/srph/qp/v/stable)](https://packagist.org/packages/srph/qp) [![Total Downloads](https://poser.pugx.org/srph/qp/downloads)](https://packagist.org/packages/srph/qp) [![Latest Unstable Version](https://poser.pugx.org/srph/qp/v/unstable)](https://packagist.org/packages/srph/qp) [![License](https://poser.pugx.org/srph/qp/license)](https://packagist.org/packages/srph/qp)
 A library to parse or stringify query parameters in PHP.
 
+## Deprecation Notice
+Use [`http_build_query`](http://php.net/manual/en/function.http-build-query.php) instead. This library doesn't have a valid use case.
+
 ## Installing
 ```bash
 composer require srph/qp
